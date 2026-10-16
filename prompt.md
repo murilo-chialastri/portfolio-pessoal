@@ -22,5 +22,6 @@ o site vai ser dividido em sessões:
 sobre o Home, pegue de referencia a imagem home.png, porem só quero os seguintes elementos: nome no canto superior esquerdo da tela, h1 no centro, e uma imagem no canto inferior esquerdo. Assim fazendo com que os elementos fiquem em diagonal na tela.
 o campo de navegação do site vai ser um botão em circulo com 3 barrinhas no meio que ficara fixo na tela, na parte superior direita, como na referiancia navegacao.png.
 ao clicar, deve abrir as opções de navegações entre sessões.
+Para o sobre mim, gostaria que pegue de referencia a imagem sobre.png, 
 
 
