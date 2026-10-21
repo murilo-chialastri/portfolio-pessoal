@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seu Nome — Portfólio</title>
+  <meta name="description" content="Portfólio pessoal: projetos, habilidades e contato.">
+
+  <!-- Tailwind (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#252525',
+            smoke: '#545454',
+            ash: '#7D7D7D',
+            mist: '#CFCFCF'
+          },
+          fontFamily: {
+            display: ['"Josefin Sans"', 'sans-serif'],
+            sans: ['Lexend', 'sans-serif'],
+            accent: ['"Merriweather Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Scroll suave -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-ink text-mist font-sans antialiased">
+
+  <!-- =====================================================
+       Navegação
+       ===================================================== -->
+  <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Abrir menu">
+      <span class="nav-bar"></span>
+      <span class="nav-bar"></span>
+      <span class="nav-bar"></span>
+    </button>
+
+    <div class="nav-panel" id="navPanel">
+      <a href="#home" class="nav-link is-active" data-nav style="--i:0">Home</a>
+      <a href="#sobre" class="nav-link" data-nav style="--i:1">Sobre mim</a>
+      <a href="#projetos" class="nav-link" data-nav style="--i:2">Projetos</a>
+      <a href="#contato" class="nav-link" data-nav style="--i:3">Contato</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- =====================================================
+         Home — nome (sup. esq.) → h1 (centro) → imagem (inf. dir.)
+         ===================================================== -->
+    <section id="home" class="hero relative h-[100svh] min-h-[600px] overflow-hidden" data-section>
+
+      <div class="absolute top-6 left-6 md:top-10 md:left-12 z-10" data-parallax="0.15">
+        <div class="hero-in" style="--d:0.1s">
+          <p class="font-display text-xl md:text-2xl font-semibold uppercase tracking-[0.12em] pt-1">Seu Nome</p>
+          <p class="font-accent italic font-light text-sm text-ash mt-1">Desenvolvedor front-end</p>
+        </div>
+      </div>
+
+      <div class="absolute inset-0 flex items-center justify-center px-6 md:px-12">
+        <h1 class="w-full max-w-6xl font-display font-bold text-[clamp(2.1rem,7vw,6.5rem)] leading-[0.98] tracking-tight"
+            data-parallax="0.35" data-hero-fade>
+          <span class="line"><span style="--i:0">Desenvolvo</span></span>
+          <span class="line pl-[6vw]"><span style="--i:1">interfaces com</span></span>
+          <span class="line pl-[12vw]"><span style="--i:2" class="text-ash">código e cuidado.</span></span>
+        </h1>
+      </div>
+
+      <div class="absolute bottom-6 right-6 md:bottom-10 md:right-12" data-parallax="-0.1">
+        <figure class="placeholder hero-in w-40 md:w-60 aspect-square rounded-2xl" style="--d:1.1s">
+          <span>Imagem</span>
+          <!-- <img src="img/hero.jpg" alt="Descrição da imagem"> -->
+        </figure>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Sobre mim — painéis trocados pelo scroll
+         ===================================================== -->
+    <section id="sobre" class="about relative" data-section>
+      <div class="about-sticky">
+        <div class="mx-auto w-full max-w-7xl px-6 md:px-12 grid gap-10 md:gap-16 md:grid-cols-[5fr_7fr] items-center">
+
+          <figure class="about-photo placeholder justify-self-center md:justify-self-start" id="aboutPhoto" data-reveal>
+            <span>Sua foto</span>
+            <!-- <img src="img/perfil.jpg" alt="Foto de Seu Nome"> -->
+          </figure>
+
+          <div class="about-content">
+            <p class="section-label mb-6" data-reveal>(01) Sobre mim</p>
+
+            <div class="about-steps" data-reveal style="--rd:0.08s">
+              <button class="about-step is-active" type="button" data-step="0">
+                <span>01</span> Pessoal
+              </button>
+              <div class="about-track"><div class="about-fill" id="aboutFill"></div></div>
+              <button class="about-step" type="button" data-step="1">
+                <span>02</span> Habilidades
+              </button>
+            </div>
+
+            <div class="about-panels">
+              <!-- Painel 1: informações pessoais -->
+              <article class="about-panel is-active" data-panel>
+                <h2 class="font-display font-bold text-[clamp(2.2rem,4.5vw,4rem)] leading-[1.02] tracking-tight" style="--c:0">
+                  Olá, eu sou<br><span class="text-ash">Seu Nome.</span>
+                </h2>
+                <p class="mt-6 max-w-xl text-lg font-light leading-relaxed text-ash" style="--c:1">
+                  Texto de apresentação pessoal. Conte quem você é, de onde vem e o que te move na programação.
+                  Este conteúdo será substituído depois.
+                </p>
+                <p class="mt-4 max-w-xl text-lg font-light leading-relaxed text-ash" style="--c:2">
+                  Um segundo parágrafo para falar sobre seus objetivos, interesses e o tipo de projeto que gosta de construir.
+                </p>
+                <dl class="mt-8 grid grid-cols-3 gap-6 max-w-xl border-t border-white/10 pt-6" style="--c:3">
+                  <div>
+                    <dt class="section-label !text-[0.68rem]">Localização</dt>
+                    <dd class="mt-2 font-light">Cidade, UF</dd>
+                  </div>
+                  <div>
+                    <dt class="section-label !text-[0.68rem]">Formação</dt>
+                    <dd class="mt-2 font-light">Curso — FIAP</dd>
+                  </div>
+                  <div>
+                    <dt class="section-label !text-[0.68rem]">Foco</dt>
+                    <dd class="mt-2 font-light">Front-end</dd>
+                  </div>
+                </dl>
+                <button type="button" data-step="1" class="mt-8 inline-flex items-center gap-2 text-mist font-light hover:gap-3 transition-all duration-300" style="--c:4">
+                  Ver habilidades <span aria-hidden="true">›</span>
+                </button>
+              </article>
+
+              <!-- Painel 2: habilidades -->
+              <article class="about-panel" data-panel>
+                <h2 class="font-display font-bold text-[clamp(2.2rem,4.5vw,4rem)] leading-[1.02] tracking-tight" style="--c:0">
+                  Ferramentas que<br><span class="text-ash">uso no dia a dia.</span>
+                </h2>
+
+                <div class="mt-8" style="--c:1">
+                  <p class="section-label mb-3">Front-end</p>
+                  <ul class="flex flex-wrap gap-2">
+                    <li class="chip">HTML5</li>
+                    <li class="chip">CSS3</li>
+                    <li class="chip">JavaScript</li>
+                    <li class="chip">Tailwind CSS</li>
+                    <li class="chip">React</li>
+                  </ul>
+                </div>
+
+                <div class="mt-6" style="--c:2">
+                  <p class="section-label mb-3">Back-end &amp; dados</p>
+                  <ul class="flex flex-wrap gap-2">
+                    <li class="chip">Node.js</li>
+                    <li class="chip">Python</li>
+                    <li class="chip">SQL</li>
+                  </ul>
+                </div>
+
+                <div class="mt-6" style="--c:3">
+                  <p class="section-label mb-3">Ferramentas</p>
+                  <ul class="flex flex-wrap gap-2">
+                    <li class="chip">Git</li>
+                    <li class="chip">GitHub</li>
+                    <li class="chip">Figma</li>
+                    <li class="chip">VS Code</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Projetos — carrossel
+         ===================================================== -->
+    <section id="projetos" class="relative py-28 md:py-36 overflow-hidden" data-section>
+      <div class="mx-auto max-w-7xl px-6 md:px-12 text-center">
+        <p class="section-label" data-reveal>(02) Projetos</p>
+        <h2 class="mt-5 font-display font-bold uppercase text-[clamp(2.8rem,8vw,6.5rem)] leading-[0.9] tracking-tight" data-reveal style="--rd:0.08s">
+          Projetos em destaque
+        </h2>
+        <p class="mt-5 mx-auto max-w-lg font-light text-ash" data-reveal style="--rd:0.16s">
+          Uma seleção de projetos pessoais. Arraste, use as setas ou clique nos cards laterais.
+        </p>
+      </div>
+
+      <div class="carousel mt-16 md:mt-20" id="carousel" data-reveal style="--rd:0.2s">
+        <div class="carousel-stage" id="carouselStage" aria-roledescription="carrossel" aria-label="Projetos">
+
+          <article class="project-card" data-index="0" data-title="Projeto 01" aria-roledescription="slide" aria-label="1 de 3">
+            <div class="card-inner">
+              <div class="card-media placeholder">
+                <span>Imagem do projeto 01</span>
+                <!-- <img src="img/projeto-01.jpg" alt="Prévia do Projeto 01"> -->
+              </div>
+              <span class="card-num">01</span>
+              <div class="card-info">
+                <h3 class="font-display font-bold uppercase text-2xl md:text-3xl leading-none pt-1">Projeto 01</h3>
+                <p class="mt-2 text-sm md:text-base font-light text-ash line-clamp-2">
+                  Breve descrição do projeto: objetivo, problema resolvido e destaque técnico.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-display text-[0.7rem] uppercase tracking-[0.18em] text-ash">
+                  <li>HTML</li><li>CSS</li><li>JS</li>
+                </ul>
+                <a href="#" class="card-link" target="_blank" rel="noopener">
+                  Ver projeto
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="1" data-title="Projeto 02" aria-roledescription="slide" aria-label="2 de 3">
+            <div class="card-inner">
+              <div class="card-media placeholder">
+                <span>Imagem do projeto 02</span>
+                <!-- <img src="img/projeto-02.jpg" alt="Prévia do Projeto 02"> -->
+              </div>
+              <span class="card-num">02</span>
+              <div class="card-info">
+                <h3 class="font-display font-bold uppercase text-2xl md:text-3xl leading-none pt-1">Projeto 02</h3>
+                <p class="mt-2 text-sm md:text-base font-light text-ash line-clamp-2">
+                  Breve descrição do projeto: objetivo, problema resolvido e destaque técnico.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-display text-[0.7rem] uppercase tracking-[0.18em] text-ash">
+                  <li>React</li><li>Tailwind</li>
+                </ul>
+                <a href="#" class="card-link" target="_blank" rel="noopener">
+                  Ver projeto
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="2" data-title="Projeto 03" aria-roledescription="slide" aria-label="3 de 3">
+            <div class="card-inner">
+              <div class="card-media placeholder">
+                <span>Imagem do projeto 03</span>
+                <!-- <img src="img/projeto-03.jpg" alt="Prévia do Projeto 03"> -->
+              </div>
+              <span class="card-num">03</span>
+              <div class="card-info">
+                <h3 class="font-display font-bold uppercase text-2xl md:text-3xl leading-none pt-1">Projeto 03</h3>
+                <p class="mt-2 text-sm md:text-base font-light text-ash line-clamp-2">
+                  Breve descrição do projeto: objetivo, problema resolvido e destaque técnico.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-display text-[0.7rem] uppercase tracking-[0.18em] text-ash">
+                  <li>Node.js</li><li>SQL</li>
+                </ul>
+                <a href="#" class="card-link" target="_blank" rel="noopener">
+                  Ver projeto
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn" type="button" aria-label="Projeto anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel-pill" aria-live="polite"><span id="pillText">Projeto 01</span></div>
+          <button class="carousel-btn" id="nextBtn" type="button" aria-label="Próximo projeto">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+        <p class="mt-5 text-center font-display text-xs tracking-[0.25em] text-ash">
+          <span id="countCurrent" class="text-mist">01</span> / 03
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       Contato (footer)
+       ===================================================== -->
+  <footer id="contato" class="relative min-h-[100svh] flex flex-col px-6 md:px-12 pt-28 md:pt-36 pb-8" data-section>
+    <div class="flex-1 flex flex-col items-center">
+      <p class="section-label" data-reveal>(03) Contato</p>
+      <h2 class="mt-5 text-center font-display font-bold text-[clamp(2.4rem,6vw,5rem)] leading-[0.95] tracking-tight" data-reveal style="--rd:0.08s">
+        Vamos construir<br><span class="text-ash">algo juntos.</span>
+      </h2>
+
+      <form class="contact-card mt-12 md:mt-16" id="contactForm" data-reveal style="--rd:0.16s">
+        <div class="contact-row">
+          <span class="contact-label">Para</span>
+          <span class="text-lg font-light truncate" id="contactEmail">seuemail@exemplo.com</span>
+          <button class="copy-btn" id="copyBtn" type="button">Copiar</button>
+        </div>
+        <div class="contact-row">
+          <label for="from">De</label>
+          <input class="col-span-2" id="from" name="from" type="email" placeholder="seu@email.com" autocomplete="email" required>
+        </div>
+        <div class="contact-row">
+          <label for="subject">Assunto</label>
+          <input class="col-span-2" id="subject" name="subject" type="text" placeholder="Sobre o que vamos falar?" required>
+        </div>
+        <div class="contact-row contact-row--message">
+          <label for="message">Mensagem</label>
+          <textarea class="col-span-2" id="message" name="message" placeholder="Escreva sua mensagem..." data-lenis-prevent required></textarea>
+        </div>
+        <div class="flex justify-end">
+          <button class="send-btn" type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="footer-meta mt-20 pt-6 border-t border-white/10 grid gap-6 md:grid-cols-3 items-center text-center md:text-left">
+      <p>© <span id="year">2025</span> Seu Nome</p>
+
+      <div class="flex justify-center gap-1">
+        <a href="mailto:seuemail@exemplo.com" class="social-link" aria-label="E-mail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+      </div>
+
+      <div class="flex justify-center md:justify-end gap-6">
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       Scripts
+       ===================================================== -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script>
+    (() => {
+      document.documentElement.classList.remove('no-js');
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
+      /* ---------- Scroll suave (Lenis) ---------- */
+      let lenis = null;
+      if (!reduceMotion && typeof window.Lenis === 'function') {
+        lenis = new Lenis({
+          duration: 1.25,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true
+        });
+        const raf = (time) => {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      }
+
+      const scrollToTarget = (target) => {
+        if (lenis) {
+          lenis.scrollTo(target, { duration: 1.6 });
+          return;
+        }
+        const top = typeof target === 'number'
+          ? target
+          : target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+      };
+
+      /* ---------- Parallax do Home + painéis do Sobre ---------- */
+      const hero = document.getElementById('home');
+      const parallaxEls = hero.querySelectorAll('[data-parallax]');
+      const heroFade = hero.querySelector('[data-hero-fade]');
+
+      const about = document.getElementById('sobre');
+      const aboutPhoto = document.getElementById('aboutPhoto');
+      const aboutFill = document.getElementById('aboutFill');
+      const aboutPanels = about.querySelectorAll('[data-panel]');
+      const aboutSteps = about.querySelectorAll('.about-step');
+      let aboutIndex = 0;
+
+      const updateHero = () => {
+        if (reduceMotion) return;
+        const y = window.scrollY;
+        if (y > window.innerHeight * 1.2) return;
+        parallaxEls.forEach((el) => {
+          const factor = parseFloat(el.dataset.parallax) || 0;
+          el.style.transform = `translate3d(0, ${(y * factor).toFixed(1)}px, 0)`;
+        });
+        if (heroFade) heroFade.style.opacity = clamp(1 - y / (window.innerHeight * 0.75), 0, 1);
+      };
+
+      const setAboutPanel = (index) => {
+        if (index === aboutIndex) return;
+        aboutIndex = index;
+        aboutPanels.forEach((panel, i) => {
+          panel.classList.toggle('is-active', i === index);
+          panel.classList.toggle('is-past', i < index);
+        });
+        aboutSteps.forEach((step, i) => step.classList.toggle('is-active', i === index));
+      };
+
+      const updateAbout = () => {
+        if (window.innerWidth < 768) return;
+        const total = about.offsetHeight - window.innerHeight;
+        if (total <= 0) return;
+        const p = clamp(-about.getBoundingClientRect().top / total, 0, 1);
+        aboutPhoto.style.setProperty('--p', p.toFixed(3));
+        aboutFill.style.transform = `scaleX(${p.toFixed(3)})`;
+        setAboutPanel(Math.min(aboutPanels.length - 1, Math.floor(p * aboutPanels.length)));
+      };
+
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateHero();
+          updateAbout();
+          ticking = false;
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
+
+      // Botões "01 Pessoal / 02 Habilidades" rolam até o trecho correspondente
+      about.querySelectorAll('[data-step]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const i = Number(btn.dataset.step);
+          if (window.innerWidth < 768) {
+            scrollToTarget(aboutPanels[i]);
+            return;
+          }
+          const start = about.getBoundingClientRect().top + window.scrollY;
+          const total = about.offsetHeight - window.innerHeight;
+          scrollToTarget(start + total * ((i + 0.15) / aboutPanels.length));
+        });
+      });
+
+      /* ---------- Revelar ao rolar ---------- */
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+      document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
+
+      /* ---------- Navegação ---------- */
+      const nav = document.getElementById('siteNav');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = nav.querySelectorAll('[data-nav]');
+
+      const setNav = (open) => {
+        nav.classList.toggle('is-open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      };
+
+      navToggle.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
+
+      document.addEventListener('click', (e) => {
+        if (nav.classList.contains('is-open') && !nav.contains(e.target)) setNav(false);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+          setNav(false);
+          navToggle.focus();
+        }
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          e.preventDefault();
+          if (href === '#') return; // links de projeto ainda sem URL
+          const target = document.querySelector(href);
+          if (!target) return;
+          setNav(false);
+          scrollToTarget(target);
+        });
+      });
+
+      // Seção ativa no menu
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`));
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      document.querySelectorAll('[data-section]').forEach((s) => sectionObserver.observe(s));
+
+      /* ---------- Carrossel ---------- */
+      const carousel = document.getElementById('carousel');
+      const stage = document.getElementById('carouselStage');
+      const cards = Array.from(stage.querySelectorAll('.project-card'));
+      const pillText = document.getElementById('pillText');
+      const countCurrent = document.getElementById('countCurrent');
+      const N = cards.length;
+      let current = 0;
+
+      const updatePill = () => {
+        pillText.textContent = cards[current].dataset.title;
+        pillText.classList.remove('is-swapping');
+        void pillText.offsetWidth;
+        pillText.classList.add('is-swapping');
+        countCurrent.textContent = String(current + 1).padStart(2, '0');
+      };
+
+      const render = () => {
+        cards.forEach((card, i) => {
+          let rel = ((i - current) % N + N) % N;
+          if (rel > N / 2) rel -= N;
+          rel = clamp(rel, -2, 2);
+
+          const prev = Number(card.dataset.pos);
+          clearTimeout(card._wrapTimer);
+          card.classList.remove('no-anim');
+
+          // Card que troca de lado: sai pela borda, reaparece do lado oposto
+          if (prev && rel && Math.sign(prev) !== Math.sign(rel)) {
+            card.dataset.pos = Math.sign(prev) * 2;
+            card._wrapTimer = setTimeout(() => {
+              card.classList.add('no-anim');
+              card.dataset.pos = Math.sign(rel) * 2;
+              void card.offsetWidth;
+              card.classList.remove('no-anim');
+              card.dataset.pos = rel;
+            }, 380);
+          } else {
+            card.dataset.pos = rel;
+          }
+
+          const active = rel === 0;
+          card.setAttribute('aria-hidden', String(!active));
+          card.querySelectorAll('a').forEach((a) => (a.tabIndex = active ? 0 : -1));
+          if (!active) card.querySelector('.card-inner').style.cssText = '';
+        });
+      };
+
+      const go = (step) => {
+        current = ((current + step) % N + N) % N;
+        render();
+        updatePill();
+      };
+
+      document.getElementById('prevBtn').addEventListener('click', () => go(-1));
+      document.getElementById('nextBtn').addEventListener('click', () => go(1));
+
+      // Clique nos cards laterais
+      let justDragged = false;
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          if (justDragged) return;
+          const pos = Number(card.dataset.pos);
+          if (pos !== 0) go(pos);
+        });
+      });
+
+      // Arrastar
+      let startX = 0;
+      let dx = 0;
+      let pointerId = null;
+      let dragging = false;
+
+      stage.addEventListener('dragstart', (e) => e.preventDefault());
+
+      stage.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return;
+        pointerId = e.pointerId;
+        startX = e.clientX;
+        dx = 0;
+        dragging = false;
+      });
+
+      stage.addEventListener('pointermove', (e) => {
+        if (e.pointerId !== pointerId) return;
+        dx = e.clientX - startX;
+        if (!dragging && Math.abs(dx) > 6) {
+          dragging = true;
+          stage.classList.add('is-dragging');
+          stage.setPointerCapture(pointerId);
+        }
+        if (dragging) stage.style.setProperty('--drag', `${(dx * 0.6).toFixed(1)}px`);
+      });
+
+      const endDrag = (e) => {
+        if (e.pointerId !== pointerId) return;
+        pointerId = null;
+        if (!dragging) return;
+        dragging = false;
+        stage.classList.remove('is-dragging');
+        stage.style.setProperty('--drag', '0px');
+        if (dx < -60) go(1);
+        else if (dx > 60) go(-1);
+        justDragged = true;
+        setTimeout(() => (justDragged = false), 0);
+      };
+      stage.addEventListener('pointerup', endDrag);
+      stage.addEventListener('pointercancel', endDrag);
+
+      // Teclado (quando o carrossel está visível)
+      let carouselInView = false;
+      new IntersectionObserver(([entry]) => (carouselInView = entry.isIntersecting), { threshold: 0.4 })
+        .observe(carousel);
+
+      document.addEventListener('keydown', (e) => {
+        if (!carouselInView || e.target.closest('input, textarea')) return;
+        if (e.key === 'ArrowRight') go(1);
+        if (e.key === 'ArrowLeft') go(-1);
+      });
+
+      // Inclinação do card ativo seguindo o mouse
+      if (!reduceMotion) {
+        cards.forEach((card) => {
+          const inner = card.querySelector('.card-inner');
+          card.addEventListener('pointermove', (e) => {
+            if (e.pointerType !== 'mouse' || dragging || card.dataset.pos !== '0') return;
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5;
+            const y = (e.clientY - r.top) / r.height - 0.5;
+            inner.style.setProperty('--tx', `${(x * 10).toFixed(2)}deg`);
+            inner.style.setProperty('--ty', `${(-y * 10).toFixed(2)}deg`);
+          });
+          card.addEventListener('pointerleave', () => (inner.style.cssText = ''));
+        });
+      }
+
+      render();
+      countCurrent.textContent = '01';
+
+      /* ---------- Contato ---------- */
+      const email = document.getElementById('contactEmail').textContent.trim();
+      const copyBtn = document.getElementById('copyBtn');
+
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(email);
+          copyBtn.textContent = 'Copiado!';
+        } catch {
+          copyBtn.textContent = 'Erro ao copiar';
+        }
+        setTimeout(() => (copyBtn.textContent = 'Copiar'), 1800);
+      });
+
+      document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        if (!form.reportValidity()) return;
+        const from = form.from.value.trim();
+        const subject = form.subject.value.trim();
+        const body = `${form.message.value.trim()}\n\n— ${from}`;
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
