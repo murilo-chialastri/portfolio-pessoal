@@ -26,5 +26,6 @@ Para o sobre mim, gostaria que pegue de referencia a imagem sobre1.png, vai ter 
 Logo após a sessão Sobre, vai vir o carrosel do site, pegue de referencia a imagem carrosel.png, cada card vai ser um projeto pessoal meu, onde vai conter um link, nome e informações do projeto (vai ser colocado posteriormente). por hora quero 3 cards, faça uma animação para o carrossel parecida com a do site: https://spencergabor.work/
 por fim, o footer vai ser uma sessão de contato similar a foto de referencia footer.png
 
+Segundo Prompt:
 
-
+Na sessão carrosel, diminua um pouco o titulo do projeto e deixe mais aparente a descrição do projeto, fazendo com que caiba mais duas linhas de texto
