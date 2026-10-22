@@ -34,8 +34,10 @@ Resultado: Resolveu
 Aprendizado: Acho que foi um erro bem situacional, então eu continuaria com o prompt inicial, que por sinal me deu um resultado bem melhor do que eu estava esperando
 
 Terceiro Prompt:
-
-Na sessão carrosel, quando um projeto está em "destaque", as informações aparecem, mas quando o fundo da foto é mais claro, é dificil visualizar as informações, quero que deixxe a opacidade mais escura
+Problema : Quando a foto de fundo do projeto é mais clara, as informações ficam menos evidentes
+Prompt: Na sessão carrosel, quando um projeto está em "destaque", as informações aparecem, mas quando o fundo da foto é mais claro, é dificil visualizar as informações, quero que deixxe a opacidade mais escura
+Resultado: Resolveu
+Aprendizado: Acho que poderia ter informado sobre possíveis problemas de visualização
 
 
 
