@@ -28,4 +28,15 @@ por fim, o footer vai ser uma sessão de contato similar a foto de referencia fo
 
 Segundo Prompt:
 
-Na sessão carrosel, diminua um pouco o titulo do projeto e deixe mais aparente a descrição do projeto, fazendo com que caiba mais duas linhas de texto
+Problema : não era possível escrever mais que duas linhas curtas na descrição do projeto
+Prompt: Na sessão carrosel, diminua um pouco o titulo do projeto e deixe mais aparente a descrição do projeto, fazendo com que caiba mais duas linhas de texto
+Resultado: Resolveu
+Aprendizado: Acho que foi um erro bem situacional, então eu continuaria com o prompt inicial, que por sinal me deu um resultado bem melhor do que eu estava esperando
+
+Terceiro Prompt:
+
+Na sessão carrosel, quando um projeto está em "destaque", as informações aparecem, mas quando o fundo da foto é mais claro, é dificil visualizar as informações, quero que deixxe a opacidade mais escura
+
+
+
+
